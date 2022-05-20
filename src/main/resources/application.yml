@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: eai-api-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: authuser-service
+          uri: lb://ead-authuser-service
+          predicates:
+            - Path=/ead-authuser/**
+        - id: course-service
+          uri: lb://ead-course-service
+          predicates:
+            - Path=/ead-course/**
+eureka:
+  client:
+    service-url:
+      defaultZone: 'http://localhost:8761/eureka'
+  instance:
+    hostname: localhost
