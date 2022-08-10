@@ -2,5 +2,5 @@ spring:
   profiles:
     active: prod
   application:
-    name: eai-api-gateway
+    name: ead-api-gateway
 
